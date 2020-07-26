@@ -60,7 +60,7 @@ class CacheInterceptor extends Interceptor {
   }
 
   @override
-  onError(DioError err) {
+  onError(DioError err) async {
     final extraOptions = _optionsForRequest(err.request);
     if (extraOptions.returnCacheOnError) {
       final existing = CacheResponse.fromError(err);
